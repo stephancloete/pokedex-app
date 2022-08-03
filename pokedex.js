@@ -61,7 +61,7 @@ function logic() {
       // Append the user input to the span element
       pokemonData.appendChild(spanContent);
 
-      // Place the H1 element inside the div
+      // Place the span element inside the div
       app.appendChild(pokemonData);
 
 
@@ -70,10 +70,15 @@ function logic() {
     /* --- Part 2 : Creating other DOM Objects --- */
         
         // Create HTML li element here (const pokedexEntry)
+        
+        const pokedexEntry = document.createElement('li');
 
+
+        
 
         // Give pokedexEntry (li) a new class equal to the "type" property of the pokemon object
-
+        pokedexEntry.classname = pokemon["type"];
+        console.log(pokedexEntry.classname);
 
         // Creating a preview button (using a Template Literal)
         // this code is for an html form that will Google search the name of the pokemon
@@ -95,7 +100,8 @@ function logic() {
 
         // Lastly we will get the ul List element that is meant to contain all pokedex entries
         // The we will append pokedexEntry to the innerHTML of the pokedexEntries ul element
-
+        
+        const entries = document.getElementById("pokedexEntries");
 
 /*-----------------------------------------------
  * Solution must be above this comment
