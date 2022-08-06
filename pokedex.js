@@ -71,17 +71,18 @@ function logic() {
         
         // Create HTML li element here (const pokedexEntry)
         
-          const pokedexEntry = document.createElement('li');
+        const pokedexEntry = document.createElement('li');
 
         // Give pokedexEntry (li) a new class equal to the "type" property of the pokemon object
         
+       
         const pokemonClass = pokemon["type"];
+        pokedexEntry.className = " ";
+        pokedexEntry.className = pokemonClass;
 
-        pokedexEntry.classname = [pokemonClass];
-
-        console.log("Class is: " +pokedexEntry.classname);
+        //console.log("Class is: " + pokemonClass);
+        //console.log(typeof pokemonClass);
         
-
         // Creating a preview button (using a Template Literal)
         // this code is for an html form that will Google search the name of the pokemon
        const previewButton =`
@@ -109,7 +110,12 @@ function logic() {
         // Then we will append pokedexEntry to the innerHTML of the pokedexEntries ul element
         entries.appendChild(pokedexEntry);
         
-
+        var pokedexMemory = Object.keys(pokemon)
+        .map(function(key) {
+            return pokemon[key];
+        });
+    
+    console.log(pokedexMemory);
 /*-----------------------------------------------
  * Solution must be above this comment
  *---------------------------------------------*/
