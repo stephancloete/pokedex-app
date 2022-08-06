@@ -71,18 +71,20 @@ function logic() {
         
         // Create HTML li element here (const pokedexEntry)
         
-        const pokedexEntry = document.createElement('li');
-
-
-        
+          const pokedexEntry = document.createElement('li');
 
         // Give pokedexEntry (li) a new class equal to the "type" property of the pokemon object
-        pokedexEntry.classname = pokemon["type"];
-        console.log(pokedexEntry.classname);
+        
+        const pokemonClass = pokemon["type"];
+
+        pokedexEntry.classname = [pokemonClass];
+
+        console.log("Class is: " +pokedexEntry.classname);
+        
 
         // Creating a preview button (using a Template Literal)
         // this code is for an html form that will Google search the name of the pokemon
-        const previewButton = `
+       const previewButton =`
             <form action="http://google.com/search" target="_blank">
                 <input name="q" hidden value="${name}">
                 <input type="submit">
@@ -93,15 +95,20 @@ function logic() {
     /* --- Part 3 : Add things into the DOM --- */
 
         // Firstly append pokemonData to the innerHTML of pokedexEntry
-
+        pokedexEntry.appendChild(pokemonData);
 
         // Secondly append the previewButton to innerHTML of pokedexEntry
-
+        
+        const button = document.createElement('p');
+        button.innerHTML = previewButton;
+        pokedexEntry.appendChild(button);
 
         // Lastly we will get the ul List element that is meant to contain all pokedex entries
-        // The we will append pokedexEntry to the innerHTML of the pokedexEntries ul element
-        
         const entries = document.getElementById("pokedexEntries");
+
+        // Then we will append pokedexEntry to the innerHTML of the pokedexEntries ul element
+        entries.appendChild(pokedexEntry);
+        
 
 /*-----------------------------------------------
  * Solution must be above this comment
